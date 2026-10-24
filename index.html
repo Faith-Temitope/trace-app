@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trace: stay findable</title>
+<meta name="description" content="Free Android app that lets the people you trust find you: location sharing that keeps working with no data, SMS fallback, and a hidden SOS.">
+<meta name="theme-color" content="#0A0A0A">
+<style>
+  :root { --bg:#0A0A0A; --card:#151515; --line:#262626; --text:#F4F4F4; --muted:#9A9A9A; --accent:#C6F432; --danger:#FF4B4B; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 2.4rem; line-height:1.1; margin: 8px 0 12px; letter-spacing:-0.02em; }
+  h1 span { color: var(--accent); }
+  h2 { font-size: 1.1rem; margin: 40px 0 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+  p { margin: 0 0 12px; }
+  .lead { font-size: 1.15rem; color: #d6d6d6; }
+  .btn { display:block; text-align:center; background:var(--accent); color:#0A0A0A; font-weight:800; font-size:1.1rem;
+         padding:16px; border-radius:14px; text-decoration:none; margin:20px 0 8px; }
+  .btn:active { opacity:.85; }
+  .meta { color: var(--muted); font-size:.9rem; text-align:center; }
+  .grid { display:grid; gap:12px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
+  .card b { display:block; margin-bottom:4px; }
+  ol { padding-left: 20px; margin: 0; } li { margin: 0 0 10px; }
+  .note { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; color: #d6d6d6; }
+  .warn { border-left-color: var(--danger); }
+  footer { margin-top: 48px; color: var(--muted); font-size: .85rem; }
+  code { background:#1f1f1f; padding:1px 6px; border-radius:6px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="meta" style="text-align:left">Free · Android · No account needed</div>
+  <h1>Stay <span>findable</span>.</h1>
+  <p class="lead">Trace lets the people you trust see where you are and where you were last, even when you have no data, even if your phone is taken.</p>
+
+  <a class="btn" id="download" href="https://github.com/Faith-Temitope/trace-app/releases/latest/download/trace.apk">Download Trace for Android</a>
+  <p class="meta" id="version">Latest version</p>
+
+  <h2>What it does</h2>
+  <div class="grid">
+    <div class="card"><b>Pair face to face</b>Scan each other's QR code. Only people you accept can see you.</div>
+    <div class="card"><b>Works with no data</b>Your phone keeps recording. With data it sends; without data it texts your last location by SMS.</div>
+    <div class="card"><b>Hidden SOS</b>Press the power button 4 times, or tap a disguised tile. Your contacts are texted at once.</div>
+    <div class="card"><b>"Gone quiet" alarm</b>If your phone stops reporting, your contacts' phones notice and warn them, even if yours is off.</div>
+    <div class="card"><b>Journey check-in</b>Say where you're going and when you'll arrive. Miss it and your people are alerted.</div>
+    <div class="card"><b>Built for danger</b>Duress PIN opens a fake empty app. Disguise the icon as a calculator. A SIM swap is reported from the new SIM.</div>
+  </div>
+
+  <h2>How to install</h2>
+  <ol>
+    <li>Tap <b>Download</b> above. If your phone asks, allow your browser (or WhatsApp / Files) to <b>install unknown apps</b>.</li>
+    <li>Open the downloaded file and tap <b>Install</b>.</li>
+    <li>Google Play Protect may say the developer isn't recognised. Tap <b>More details → Install anyway</b>. This appears for any app installed outside the Play Store.</li>
+    <li>Open Trace and follow the setup. Choose <b>"Allow all the time"</b> for location, and set Trace to <b>No restrictions</b> in battery settings.</li>
+  </ol>
+  <p class="note">You can also share the app with anyone by Xender or WhatsApp. Send them the APK file.</p>
+
+  <h2>Privacy</h2>
+  <p>Locations are encrypted on your phone before they leave it. Only the people you've paired with can read them. The server can't. There's no email, no sign-up and no ads.</p>
+  <p class="note warn">Normal SMS charges apply when Trace texts your contacts. You choose how often in Settings.</p>
+
+  <h2>Languages</h2>
+  <p>English, Pidgin, Hausa, Yorùbá and Igbo.</p>
+
+  <footer>Trace is free and non-commercial. Built by KLVR.</footer>
+</main>
+<script>
+  // Show the current version from latest.json (the app reads the same file to offer updates).
+  fetch('latest.json', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      if (j.apk) document.getElementById('download').href = j.apk;
+      document.getElementById('version').textContent =
+        'Version ' + j.version + (j.size ? ' · ' + j.size : '') + (j.notes ? ' · ' + j.notes : '');
+    })
+    .catch(function () {});
+</script>
+</body>
+</html>
