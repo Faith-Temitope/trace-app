@@ -3,78 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trace: stay findable</title>
-<meta name="description" content="Free Android app that lets the people you trust find you: location sharing that keeps working with no data, SMS fallback, and a hidden SOS.">
+<title>Trace: let your people know where you are</title>
+<meta name="description" content="Free Android app for Nigerians. Pair with family you trust, and if something happens, they'll know the last place your phone was, even if it went off or had no network.">
 <meta name="theme-color" content="#0A0A0A">
 <style>
-  :root { --bg:#0A0A0A; --card:#151515; --line:#262626; --text:#F4F4F4; --muted:#9A9A9A; --accent:#C6F432; --danger:#FF4B4B; }
+  :root { --bg:#0A0A0A; --card:#151515; --line:#262626; --text:#F4F4F4; --soft:#D4D4D4; --muted:#9A9A9A; --accent:#C6F432; }
   * { box-sizing: border-box; }
-  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 64px; }
-  h1 { font-size: 2.4rem; line-height:1.1; margin: 8px 0 12px; letter-spacing:-0.02em; }
-  h1 span { color: var(--accent); }
-  h2 { font-size: 1.1rem; margin: 40px 0 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-  p { margin: 0 0 12px; }
-  .lead { font-size: 1.15rem; color: #d6d6d6; }
+  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 620px; margin: 0 auto; padding: 36px 16px 64px; }
+  h1 { font-size: 2.1rem; line-height:1.15; margin: 0 0 14px; letter-spacing:-0.015em; }
+  h2 { font-size: 1.35rem; line-height:1.3; margin: 44px 0 12px; }
+  p { margin: 0 0 14px; color: var(--soft); }
+  strong { color: var(--text); }
+  .lead { font-size: 1.15rem; }
   .btn { display:block; text-align:center; background:var(--accent); color:#0A0A0A; font-weight:800; font-size:1.1rem;
-         padding:16px; border-radius:14px; text-decoration:none; margin:20px 0 8px; }
+         padding:16px; border-radius:14px; text-decoration:none; margin:24px 0 8px; }
   .btn:active { opacity:.85; }
-  .meta { color: var(--muted); font-size:.9rem; text-align:center; }
-  .grid { display:grid; gap:12px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
-  .card b { display:block; margin-bottom:4px; }
-  ol { padding-left: 20px; margin: 0; } li { margin: 0 0 10px; }
-  .note { border-left: 3px solid var(--accent); padding: 4px 0 4px 12px; color: #d6d6d6; }
-  .warn { border-left-color: var(--danger); }
-  footer { margin-top: 48px; color: var(--muted); font-size: .85rem; }
-  code { background:#1f1f1f; padding:1px 6px; border-radius:6px; }
+  .small { color: var(--muted); font-size:.9rem; }
+  .center { text-align:center; }
+  .steps { counter-reset: s; padding:0; margin:0; list-style:none; }
+  .steps li { counter-increment: s; position:relative; padding-left:44px; margin:0 0 18px; color:var(--soft); }
+  .steps li::before { content: counter(s); position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%;
+         background:var(--accent); color:#0A0A0A; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:.95rem; }
+  .qa { border-top:1px solid var(--line); padding:16px 0 4px; }
+  .qa:last-child { border-bottom:1px solid var(--line); }
+  .qa b { display:block; color:var(--text); margin-bottom:4px; }
+  .qa p { margin:0 0 12px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .box p:last-child { margin-bottom:0; }
+  footer { margin-top: 52px; color: var(--muted); font-size: .9rem; }
 </style>
 </head>
 <body>
 <main>
-  <div class="meta" style="text-align:left">Free · Android · No account needed</div>
-  <h1>Stay <span>findable</span>.</h1>
-  <p class="lead">Trace lets the people you trust see where you are and where you were last, even when you have no data, even if your phone is taken.</p>
+  <h1>If something happens to you, your people will know where to look.</h1>
+  <p class="lead">Trace is a free Android app. You pair it with family and friends you trust. Your phones quietly keep each other updated on where you are, including on roads with no network.</p>
 
   <a class="btn" id="download" href="https://github.com/Faith-Temitope/trace-app/releases/latest/download/trace.apk">Download Trace for Android</a>
-  <p class="meta" id="version">Latest version</p>
+  <p class="small center" id="version">Free · about 60 MB</p>
 
-  <h2>What it does</h2>
-  <div class="grid">
-    <div class="card"><b>Pair face to face</b>Scan each other's QR code. Only people you accept can see you.</div>
-    <div class="card"><b>Works with no data</b>Your phone keeps recording. With data it sends; without data it texts your last location by SMS.</div>
-    <div class="card"><b>Hidden SOS</b>Press the power button 4 times, or tap a disguised tile. Your contacts are texted at once.</div>
-    <div class="card"><b>"Gone quiet" alarm</b>If your phone stops reporting, your contacts' phones notice and warn them, even if yours is off.</div>
-    <div class="card"><b>Journey check-in</b>Say where you're going and when you'll arrive. Miss it and your people are alerted.</div>
-    <div class="card"><b>Built for danger</b>Duress PIN opens a fake empty app. Disguise the icon as a calculator. A SIM swap is reported from the new SIM.</div>
+  <h2>Why we made it</h2>
+  <p>Too many families have had to ask the same question after someone was taken on the road: <em>where was he last seen?</em> Usually nobody knows. The phone was switched off, and nothing had been saved.</p>
+  <p>Trace saves it. Every few minutes it notes where your phone is and shares that with the people you've chosen. If your phone goes off, they still have the last place it was.</p>
+
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><strong>Pair with someone in person.</strong> One of you shows a code on the screen and the other scans it. Nobody can follow you unless you've paired with them.</li>
+    <li><strong>Leave it running.</strong> Trace records your location every 10, 30 or 60 minutes, whichever you choose. You don't have to open it.</li>
+    <li><strong>If something goes wrong,</strong> your people see where you were, and Trace warns them, even when you can't.</li>
+  </ol>
+
+  <h2>When things go wrong</h2>
+  <div class="qa"><b>No data?</b><p>Your phone keeps recording. When there's no internet, Trace sends your last location to your people by normal SMS.</p></div>
+  <div class="qa"><b>Phone switched off?</b><p>Your people's phones notice that you've stopped reporting and warn them, with the last place your phone was.</p></div>
+  <div class="qa"><b>Can't open the app?</b><p>Press your power button four times quickly. Your phone buzzes once and your people get an SOS text with your location. Nothing shows on the screen.</p></div>
+  <div class="qa"><b>Forced to unlock it?</b><p>Set a second PIN. If someone makes you open Trace, use that one. It opens an empty app and quietly sends SOS.</p></div>
+  <div class="qa"><b>Travelling?</b><p>Tell Trace where you're going and when you should arrive. If you haven't checked in, your people are told, and they get your last location.</p></div>
+  <div class="qa"><b>Someone changes your SIM?</b><p>Trace texts your people from the new SIM. They get your location and the new number.</p></div>
+  <div class="qa"><b>Your mother uses a small phone?</b><p>Add her number in Trace. She gets your alerts by SMS, and she can text WHERE to your phone to get your location back.</p></div>
+
+  <h2>What Trace can't do</h2>
+  <div class="box">
+    <p>Trace can't stop anyone from harming you, and it can't call the police for you. What it does is make sure the people who would come looking for you know where to start.</p>
+    <p>It needs your phone to have been on, with location turned on. On Tecno, Infinix and itel phones, you need to change one battery setting so the phone doesn't shut Trace down. The app shows you how during setup.</p>
   </div>
 
   <h2>How to install</h2>
-  <ol>
-    <li>Tap <b>Download</b> above. If your phone asks, allow your browser (or WhatsApp / Files) to <b>install unknown apps</b>.</li>
-    <li>Open the downloaded file and tap <b>Install</b>.</li>
-    <li>Google Play Protect may say the developer isn't recognised. Tap <b>More details → Install anyway</b>. This appears for any app installed outside the Play Store.</li>
-    <li>Open Trace and follow the setup. Choose <b>"Allow all the time"</b> for location, and set Trace to <b>No restrictions</b> in battery settings.</li>
+  <ol class="steps">
+    <li>Tap <strong>Download</strong> at the top of this page. If your phone asks, allow your browser (or WhatsApp, or Files) to install apps.</li>
+    <li>Open the file you downloaded and tap <strong>Install</strong>.</li>
+    <li>Your phone may warn that the app is from an unknown developer. That's because Trace isn't on the Play Store yet. Tap <strong>More details</strong>, then <strong>Install anyway</strong>.</li>
+    <li>Open Trace and follow the setup. When it asks about location, choose <strong>Allow all the time</strong>.</li>
   </ol>
-  <p class="note">You can also share the app with anyone by Xender or WhatsApp. Send them the APK file.</p>
+  <p>Once you have it, you can send the app to anyone by Xender or WhatsApp.</p>
 
-  <h2>Privacy</h2>
-  <p>Locations are encrypted on your phone before they leave it. Only the people you've paired with can read them. The server can't. There's no email, no sign-up and no ads.</p>
-  <p class="note warn">Normal SMS charges apply when Trace texts your contacts. You choose how often in Settings.</p>
+  <h2>Your privacy</h2>
+  <p>Your location is locked on your phone before it's sent, and only the people you've paired with can unlock it. We can't read it. There's no sign-up, no email and no ads, and we don't sell anything about you.</p>
 
-  <h2>Languages</h2>
-  <p>English, Pidgin, Hausa, Yorùbá and Igbo.</p>
+  <h2>What it costs</h2>
+  <p>Trace is free. The only cost is the normal SMS charge from your network when Trace texts your people, and you choose how often that can happen.</p>
 
-  <footer>Trace is free and non-commercial. Built by KLVR.</footer>
+  <a class="btn" href="https://github.com/Faith-Temitope/trace-app/releases/latest/download/trace.apk">Download Trace</a>
+  <p class="small center">Works in English, Pidgin, Hausa, Yorùbá and Igbo.</p>
+
+  <footer>Trace is free and non-commercial. Made in Nigeria by KLVR.</footer>
 </main>
 <script>
-  // Show the current version from latest.json (the app reads the same file to offer updates).
+  // Current version and size come from latest.json (the app reads the same file to offer updates).
   fetch('latest.json', { cache: 'no-store' })
     .then(function (r) { return r.json(); })
     .then(function (j) {
-      if (j.apk) document.getElementById('download').href = j.apk;
-      document.getElementById('version').textContent =
-        'Version ' + j.version + (j.size ? ' · ' + j.size : '') + (j.notes ? ' · ' + j.notes : '');
+      if (j.apk) document.querySelectorAll('a.btn').forEach(function (a) { a.href = j.apk; });
+      document.getElementById('version').textContent = 'Free · version ' + j.version + (j.size ? ' · ' + j.size : '');
     })
     .catch(function () {});
 </script>
