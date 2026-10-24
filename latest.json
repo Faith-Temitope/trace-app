@@ -1,6 +1,6 @@
 {
-  "version": "0.3.1",
+  "version": "0.3.2",
   "apk": "https://github.com/Faith-Temitope/trace-app/releases/latest/download/trace.apk",
-  "notes": "Your phone now rings when one of your people needs help.",
+  "notes": "Fixes the \"App blocked\" message some phones showed.",
   "size": "59 MB"
 }
